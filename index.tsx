@@ -17,31 +17,82 @@ export default function App() {
   const [answers, setAnswers] = useState({});
 
 
+
+
   const questionsMap = {
     "Thyroid Cancer": [
+      { text: 'How old are you?' },
+      { text: 'What is your gender?', options: ['Male', 'Female'] },
+      { text: 'Do you currently smoke?', options: ['Yes', 'No'] },
+      { text: 'Have you ever smoked?', options: ['Yes', 'No'] },
+      { text: 'Have you received radiotherpy treatment?', options: ['Yes', 'No'] },
+      { text: 'What are the results of your physical examination?', options: ['Single nodular goiter-left', 'Single nodular goiter-right','Multinodular goiter', 'Diffuse goiter', 'Normal'] },
       { text: 'Do you have enlarged lymph nodes in your neck?', options: ['No', 'Right', 'Extensive', 'Left', 'Bilateral', 'Posterior'] },
+      { text: 'What is the pathology results of your thyroid biopsy?', options: ['Micropapillary ', 'Papillary', 'Follicular', 'Hurthle cell'] },
+      { text: 'Is your thyroid cancer unifocal or multifocal?', options: ['Uni-Focal', 'Multi-Focal'] },
       { text: 'What is your tumor classification?', options: ['T1a', 'T1b', 'T2', 'T3a', 'T4a', 'T4b'] },
       { text: 'What is your lymph node classification based on cancer staging?', options: ['N0', 'N1a', 'N1b'] },
+      { text: 'Has your cancer spread to distant organs?', options: ['Yes', 'No'] },
+      { text: 'What is your stage of cancer?', options: ['I', 'II', 'III', 'IVA','IVB'] },
       { text: 'How did your cancer respond to treatment?', options: ['Indeterminate', 'Excellent', 'Structural', 'Biochemical Incomplete'] },
+
+
     ],
     "Lung\n Cancer": [
+      { text: 'What is your gender?', options: ['Male', 'Female'] },
       { text: 'How old are you?'},
+      { text: 'Have you smoked over 100 cigarettes?', options: ['Yes', 'No'] },
+      { text: 'Do you have yellowish fingers?', options: ['Yes', 'No'] },
+      { text: 'Do you have anxiety?', options: ['Yes', 'No'] },
       { text: 'Do you have peer pressure?', options: ['Yes', 'No'] },
+      { text: 'Do you have Chronic Diseases?', options: ['Yes', 'No'] },
+      { text: 'Are you constantly fatigued?', options: ['Yes', 'No'] },
       { text: 'Do you have allergies?', options: ['Yes', 'No'] },
+      { text: 'Do you constantly wheeze?', options: ['Yes', 'No'] },
       { text: 'Do you drink alcohol?', options: ['Yes', 'No'] },
+      { text: 'Do you constantly cough?', options: ['Yes', 'No'] },
+      { text: 'Do you have shortness of breath?', options: ['Yes', 'No'] },
+      { text: 'Do you have difficulty swallowing?', options: ['Yes', 'No'] },
+      { text: 'Do you have chest pain?', options: ['Yes', 'No'] },
     ],
     "Heart Disease": [
+      { text: 'What is your age?'},
+      { text: 'What is your gender?', options: ['Male', 'Female'] },
       { text: 'What type of chestpain do you experience?', options: ['Typical Angina', 'Atypical Angina', 'Non-Anginal Pain', 'Asymptomatic'] },
+      { text: 'What is your resting blood pressure (mmHg)?', },
+      { text: 'What is your cholesterol level (mg/dL)?'},
+      { text: 'Is you fasting blood sugar more than 120 mg/dL?', options: ['Yes', 'No'] },
+      { text: 'What are your resting electrocardiographic results?', options: ['Normal', 'ST-T wave abnormality', 'Left ventricular hypertrophy'] },
       { text: 'What is your maximum heart rate?'},
+      { text: 'Do you experience exercise induced angina?', options: ['Yes', 'No'] },
       { text: 'What is your ST depression induced by exercise relative to rest?'},
+      { text: 'What is the slope of your peak exercise segment?', options: ['Upsloping', 'Flat', 'Downsloping'] },
       { text: 'What is the number of major vessels colored by flourosopy?', options: ['0', '1', '2', '3'] },
+      { text: 'What is the thalassemia type?', options: ['Normal', 'Fixed Defect', 'Reversible Defect'] },
     ],
 
 
     "Diabetes": [
+      { text: 'Do you have high Blood Pressure?', options: ['Yes', 'No'] },
+      { text: 'Do you have high Cholesterol?', options: ['Yes', 'No'] },
+      { text: 'Have you had a Cholesterol Check in the past 5 years?', options: ['Yes', 'No'] },
       { text: 'What is your BMI?'},
+      { text: 'Have you smoked over 100 cigaretes?', options: ['Yes', 'No'] },
+      { text: 'Have you had a stroke?', options: ['Yes', 'No'] },
+      { text: 'Do you have a Coronary Heart Disease or Myocardial Infarction?', options: ['Yes', 'No'] },
+      { text: 'Do you exercise frequently?', options: ['Yes', 'No'] },
+      { text: 'Do you eat a daily serving of fruits?', options: ['Yes', 'No'] },
+      { text: 'Do you eat a daily serving of vegetables?', options: ['Yes', 'No'] },
+      { text: 'Do you drink heavy alcohol?', options: ['Yes', 'No'] },
+      { text: 'Do you have any kind of healthcare coverage?', options: ['Yes', 'No'] },
+      { text: 'Was there a time in the past year when you needed to see a doctor but did not because of its cost?', options: ['Yes', 'No'] },
       { text: 'How would you rank your general health (1 is the best, 5 is the worst)', options: ['1', '2', '3', '4', '5'] },
+      { text: 'How many days for the past 30 days was your mental health not good'},
+      { text: 'How many days for the past 30 days was your physical health not good'},
+      { text: 'Do you have serious difficulty walking or climbing stairs?', options: ['Yes', 'No'] },
+      { text: 'What is you gender?', options: ['Male', 'Female'] },
       { text: 'What is your age?'},
+      { text: 'Rank your education: \n1 = Never attended school/only kindergarten \n2 = Grades 1-8\n3 = Grades 9-11\n4 = Grade 12 or GED\n5 = College 1-3 years \n6 = College 4 years+'},
       { text: 'Rank your income: \n1 = less than $10k \n5 = less than 35k \n8 = more than 75k', options: ['1', '5', '8'] },
     ]
   };
